@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects — Reyhaneh Hosseininejad</title>
+<meta name="description" content="Research projects in human motion, assistive robotics, and related work." />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="topnav">
+    <a class="mark home-icon" href="./" style="border-bottom:none;" aria-label="Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Greenhouse body (pitched roof, glass walls) -->
+        <path d="M6 14 L18 5 L30 14 L30 31 L6 31 Z" fill="#254037" opacity="0.06"/>
+        <path d="M6 14 L18 5 L30 14 L30 31 L6 31 Z" fill="none" stroke="#254037" stroke-width="1.4" stroke-linejoin="round"/>
+        <!-- Eave: where roof meets the walls -->
+        <line x1="6" y1="14" x2="30" y2="14" stroke="#254037" stroke-width="0.9"/>
+        <!-- Glass panel grid -->
+        <line x1="14" y1="14" x2="14" y2="31" stroke="#254037" stroke-width="0.5" opacity="0.45"/>
+        <line x1="22" y1="14" x2="22" y2="31" stroke="#254037" stroke-width="0.5" opacity="0.45"/>
+        <line x1="6"  y1="22.5" x2="30" y2="22.5" stroke="#254037" stroke-width="0.5" opacity="0.4"/>
+        <line x1="18" y1="5"  x2="18" y2="14" stroke="#254037" stroke-width="0.5" opacity="0.4"/>
+        <!-- Plant pot -->
+        <path d="M14 27.5 L22 27.5 L21 31 L15 31 Z" fill="#254037" opacity="0.75"/>
+        <!-- Stem -->
+        <line x1="18" y1="27.5" x2="18" y2="20.4" stroke="#254037" stroke-width="1.1" stroke-linecap="round"/>
+        <!-- Leaves -->
+        <ellipse cx="16.2" cy="24.5" rx="1.5" ry="0.8" fill="#254037" opacity="0.55" transform="rotate(-30 16.2 24.5)"/>
+        <ellipse cx="19.8" cy="25.5" rx="1.5" ry="0.8" fill="#254037" opacity="0.55" transform="rotate(30 19.8 25.5)"/>
+        <!-- Flower head: 4 petals + center, in the wine accent -->
+        <circle cx="18"   cy="18.2" r="1.05" fill="#8a3a4c"/>
+        <circle cx="18"   cy="20.6" r="1.05" fill="#8a3a4c"/>
+        <circle cx="16.3" cy="19.4" r="1.05" fill="#8a3a4c"/>
+        <circle cx="19.7" cy="19.4" r="1.05" fill="#8a3a4c"/>
+        <circle cx="18"   cy="19.4" r="0.7"  fill="#faf7f2"/>
+      </svg>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="beyond.html">Beyond</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page-head">
+    <div class="eyebrow">Projects</div>
+    <h1>Things I've <em>explored</em>.</h1>
+    <p class="lede">
+      Research from my PhD, Masters, and undergrad, plus side projects I took on along the way.
+    </p>
+  </section>
+
+  <!-- ============ ONGOING ============ -->
+  <section>
+    <h2 class="section-title">Ongoing</h2>
+
+    <div class="projects-group">
+      <div class="projects-grid">
+
+        <article class="project">
+          <div class="project-cover is-clay">
+            <span class="badge">In progress · 2026</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">EPFL VITA · NVIDIA Warp / Newton</div>
+            <h3 class="project-title">Physics-Informed Motion Generation</h3>
+            <p class="project-desc">
+              Developing physics-informed motion generation for human interactions, with plausibility
+              metrics to evaluate generative models. Simulations built with the Newton physics engine (NVIDIA Warp).
+            </p>
+            <div class="project-tags">
+              <span class="tag">Motion gen</span>
+              <span class="tag">Physics sim</span>
+              <span class="tag">Newton</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-moss">
+            <span class="badge">Collaboration · 2026</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">EPFL VITA × NeuroRestore</div>
+            <h3 class="project-title">Virtual Patient · Stimulation → EMG</h3>
+            <p class="project-desc">
+              Modeling spinal-cord-injury patient responses to electrical stimulation, mapping
+              stimulation parameters to predicted EMG signals.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Medical AI</span>
+              <span class="tag">EMG</span>
+              <span class="tag">Collab</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PUBLISHED ============ -->
+  <section>
+    <h2 class="section-title">Published Research</h2>
+
+    <div class="projects-group">
+      <div class="projects-grid">
+
+        <article class="project">
+          <div class="project-cover is-mix">
+            <img class="project-img" src="assets/proj-motionmap.jpg" alt="MotionMap figure: an observed pose sequence mapped through a representation space to several forecasted futures" />
+            <span class="badge">CVPR · 2025</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">First author (equal contribution)</div>
+            <h3 class="project-title">MotionMap</h3>
+            <p class="project-desc">
+              A heatmap-based representation for multimodal human pose forecasting. Captures a variable
+              number of modes per observation with confidence and uncertainty, without diffusion or generative oversampling.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Human pose</span>
+              <span class="tag">Multimodality</span>
+              <span class="tag">CVPR</span>
+            </div>
+            <div class="project-links">
+              <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Hosseininejad_MotionMap_Representing_Multimodality_in_Human_Pose_Forecasting_CVPR_2025_paper.html" target="_blank" rel="noopener">Paper</a>
+              <a href="https://arxiv.org/abs/2412.18883" target="_blank" rel="noopener">arXiv</a>
+              <a href="https://github.com/vita-epfl/MotionMap" target="_blank" rel="noopener">Code</a>
+              <a href="https://www.epfl.ch/labs/vita/research/prediction/motionmap/" target="_blank" rel="noopener">Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-moss">
+            <img class="project-img" src="assets/proj-hhiassist.jpg" alt="HHI-Assist figure: motion-capture of a caregiver assisting a person, with skeletons overlaid" />
+            <span class="badge">RA-L · 2025</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Joint first author (equal contribution) · with Toyota Research Institute</div>
+            <h3 class="project-title">HHI-Assist</h3>
+            <p class="project-desc">
+              A motion-capture dataset and benchmark of close-contact human–human physical assistance,
+              plus a conditional Transformer diffusion model for predicting coupled caregiver–receiver poses.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Dataset</span>
+              <span class="tag">Diffusion</span>
+              <span class="tag">Robotics</span>
+            </div>
+            <div class="project-links">
+              <a href="https://ieeexplore.ieee.org/document/11071897/" target="_blank" rel="noopener">Paper</a>
+              <a href="https://arxiv.org/abs/2509.10096" target="_blank" rel="noopener">arXiv</a>
+              <a href="https://sites.google.com/view/hhi-assist/home" target="_blank" rel="noopener">Project &amp; Data</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-indigo">
+            <img class="project-img" src="assets/proj-posedriver.jpg" alt="PoseDriver figure: skeleton detection on cars, a cyclist, a deer, and lane markings in a driving scene" />
+            <span class="badge">Under review · 2026</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Co-author</div>
+            <h3 class="project-title">PoseDriver</h3>
+            <p class="project-desc">
+              A unified bottom-up framework for multi-category skeleton detection in driving scenes,
+              including a novel skeleton-based formulation for lane detection that hits SOTA on OpenLane.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Skeleton det.</span>
+              <span class="tag">Multi-task</span>
+              <span class="tag">Lanes</span>
+            </div>
+            <div class="project-links">
+              <a href="https://arxiv.org/abs/2603.23215" target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-mix2">
+            <span class="badge">In preparation · 2026</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">First author</div>
+            <h3 class="project-title">Physics-Derived Plausibility Metrics</h3>
+            <p class="project-desc">
+              New metrics for evaluating 3D human–human motion generation, grounded in physical simulation
+              rather than statistical distance from ground truth.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Evaluation</span>
+              <span class="tag">Motion gen</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OTHER / EARLIER ============ -->
+  <section>
+    <h2 class="section-title">Other Work</h2>
+
+    <div class="projects-group">
+      <div class="projects-grid">
+
+        <article class="project">
+          <div class="project-cover is-navy">
+            <span class="badge">EPFL · VITA</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Data pipeline + model fine-tuning</div>
+            <h3 class="project-title">Persian LLM Text-to-Speech</h3>
+            <p class="project-desc">
+              Built a data-creation pipeline for a large-scale Persian dataset and fine-tuned an
+              LLM-based TTS model using both full-parameter training and LoRA.
+            </p>
+            <div class="project-tags">
+              <span class="tag">TTS</span>
+              <span class="tag">LoRA</span>
+              <span class="tag">Persian</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-clay">
+            <span class="badge">EPFL · VITA</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Applied research</div>
+            <h3 class="project-title">Hockey Player Trajectory Forecasting</h3>
+            <p class="project-desc">
+              Applied the TrajNet++ framework to predict the motion of professional hockey players
+              from positional tracking data.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Trajectories</span>
+              <span class="tag">Sports</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-mix">
+            <span class="badge">Master's thesis · 2022</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">University of Tehran · CAST</div>
+            <h3 class="project-title">RL Locomotion for Surena&nbsp;IV</h3>
+            <p class="project-desc">
+              Designed a reinforcement-learning controller for the Surena IV humanoid's locomotion,
+              with simulation and validation in PyBullet.
+            </p>
+            <div class="project-tags">
+              <span class="tag">RL</span>
+              <span class="tag">Humanoid</span>
+              <span class="tag">PyBullet</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-moss">
+            <span class="badge">Undergrad thesis · 2019</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">University of Tehran · CAST</div>
+            <h3 class="project-title">EMG-Controlled Prosthetic Hand</h3>
+            <p class="project-desc">
+              Engineered and built a smart-actuated prosthetic hand, designing its embedded circuitry
+              and implementing an intuitive EMG-based control system.
+            </p>
+            <div class="project-tags">
+              <span class="tag">EMG</span>
+              <span class="tag">Embedded</span>
+              <span class="tag">Hardware</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-indigo">
+            <span class="badge">2020 — 2022</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">University of Tehran · Applied AI Lab</div>
+            <h3 class="project-title">Keratoconus Detection</h3>
+            <p class="project-desc">
+              Initiated a framework for detecting keratoconus from corneal topography images.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Medical CV</span>
+              <span class="tag">Classification</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-mix2">
+            <span class="badge">2016 — IK Hospital</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">RCBTR · Sina Surgical Robot</div>
+            <h3 class="project-title">Surgical Robot Training Tools</h3>
+            <p class="project-desc">
+              Designed calibration phantoms for micro CT-scans, and a 3D-printed mold with
+              silicone-rubber breast tumors for biopsy training. Developed training tools for the Sina surgical robot.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Medical</span>
+              <span class="tag">Fabrication</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <div>© <span id="year">2026</span> · Reyhaneh Hosseininejad</div>
+      <div><a href="index.html" style="border-bottom:none; color:inherit;">← Back to main page</a></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

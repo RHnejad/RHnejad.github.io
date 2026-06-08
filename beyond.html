@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beyond — Reyhaneh Hosseininejad</title>
+<meta name="description" content="Clay, paint, and other things I make outside the lab." />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="topnav">
+    <a class="mark home-icon" href="./" style="border-bottom:none;" aria-label="Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Greenhouse body (pitched roof, glass walls) -->
+        <path d="M6 14 L18 5 L30 14 L30 31 L6 31 Z" fill="#254037" opacity="0.06"/>
+        <path d="M6 14 L18 5 L30 14 L30 31 L6 31 Z" fill="none" stroke="#254037" stroke-width="1.4" stroke-linejoin="round"/>
+        <!-- Eave: where roof meets the walls -->
+        <line x1="6" y1="14" x2="30" y2="14" stroke="#254037" stroke-width="0.9"/>
+        <!-- Glass panel grid -->
+        <line x1="14" y1="14" x2="14" y2="31" stroke="#254037" stroke-width="0.5" opacity="0.45"/>
+        <line x1="22" y1="14" x2="22" y2="31" stroke="#254037" stroke-width="0.5" opacity="0.45"/>
+        <line x1="6"  y1="22.5" x2="30" y2="22.5" stroke="#254037" stroke-width="0.5" opacity="0.4"/>
+        <line x1="18" y1="5"  x2="18" y2="14" stroke="#254037" stroke-width="0.5" opacity="0.4"/>
+        <!-- Plant pot -->
+        <path d="M14 27.5 L22 27.5 L21 31 L15 31 Z" fill="#254037" opacity="0.75"/>
+        <!-- Stem -->
+        <line x1="18" y1="27.5" x2="18" y2="20.4" stroke="#254037" stroke-width="1.1" stroke-linecap="round"/>
+        <!-- Leaves -->
+        <ellipse cx="16.2" cy="24.5" rx="1.5" ry="0.8" fill="#254037" opacity="0.55" transform="rotate(-30 16.2 24.5)"/>
+        <ellipse cx="19.8" cy="25.5" rx="1.5" ry="0.8" fill="#254037" opacity="0.55" transform="rotate(30 19.8 25.5)"/>
+        <!-- Flower head: 4 petals + center, in the wine accent -->
+        <circle cx="18"   cy="18.2" r="1.05" fill="#8a3a4c"/>
+        <circle cx="18"   cy="20.6" r="1.05" fill="#8a3a4c"/>
+        <circle cx="16.3" cy="19.4" r="1.05" fill="#8a3a4c"/>
+        <circle cx="19.7" cy="19.4" r="1.05" fill="#8a3a4c"/>
+        <circle cx="18"   cy="19.4" r="0.7"  fill="#faf7f2"/>
+      </svg>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="beyond.html" class="active">Beyond</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page-head">
+    <div class="eyebrow">Beyond the Lab</div>
+    <h1>Things I do<br/>in my <em>free time</em>.</h1>
+    <p class="lede">
+      Clay, paint, and the occasional puzzle. A slow counter-weight to a lot of screen time.
+    </p>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section>
+    <h2 class="section-title">Recent Pieces</h2>
+
+    <!-- Drop your artwork photos in /assets and replace these placeholders.
+         <div class="tile"><img src="assets/clay-01.jpg" alt="A small ceramic bowl I made"></div> -->
+    <div class="gallery">
+      <div class="tile"><span>Clay piece<br/>#1</span></div>
+      <div class="tile"><span>Painting<br/>#1</span></div>
+      <div class="tile"><span>Clay piece<br/>#2</span></div>
+      <div class="tile"><span>Sketch<br/>#1</span></div>
+      <div class="tile"><span>Painting<br/>#2</span></div>
+      <div class="tile"><span>Clay piece<br/>#3</span></div>
+      <div class="tile"><span>Sketch<br/>#2</span></div>
+      <div class="tile"><span>Clay piece<br/>#4</span></div>
+      <div class="tile"><span>Coming<br/>soon</span></div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="row">
+      <div>© <span id="year">2026</span> · Reyhaneh Hosseininejad</div>
+      <div><a href="index.html" style="border-bottom:none; color:inherit;">← Back to main page</a></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
