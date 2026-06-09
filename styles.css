@@ -22,7 +22,7 @@
     --ink-soft:   #3d2230;   /* secondary text — deep wine instead of brown */
     --muted:      #8a87a8;   /* dates, captions — lavender-gray instead of taupe */
     --rule:       #c4c0d4;   /* subtle borders — lavender-tinted */
-    --grid-line:  rgba(140,130,170,0.28); /* notebook grid — lavender-gray */
+    --grid-line:  rgba(140,130,170,0.16); /* notebook grid — lavender-gray */
 
     --clay:       #8a3a4c;   /* primary accent — bright wine (available for emphasis) */
     --clay-deep:  #5e2231;   /* deeper wine — used everywhere visible */
