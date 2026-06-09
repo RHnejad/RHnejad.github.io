@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RL Locomotion for Surena IV — Master's Thesis — Reyhaneh Hosseininejad</title>
+  <meta name="description" content="English summary of Reyhaneh Hosseininejad's 2022 M.Sc. thesis: deep reinforcement learning for walking control of the Surena IV humanoid via trajectory-level control." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="topnav">
+    <a class="mark home-icon" href="./" style="border-bottom:none;" aria-label="Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 14 L18 5 L30 14 L30 31 L6 31 Z" fill="#254037" opacity="0.06"/>
+        <path d="M6 14 L18 5 L30 14 L30 31 L6 31 Z" fill="none" stroke="#254037" stroke-width="1.4" stroke-linejoin="round"/>
+        <line x1="6" y1="14" x2="30" y2="14" stroke="#254037" stroke-width="0.9"/>
+        <line x1="14" y1="14" x2="14" y2="31" stroke="#254037" stroke-width="0.5" opacity="0.45"/>
+        <line x1="22" y1="14" x2="22" y2="31" stroke="#254037" stroke-width="0.5" opacity="0.45"/>
+        <line x1="6"  y1="22.5" x2="30" y2="22.5" stroke="#254037" stroke-width="0.5" opacity="0.4"/>
+        <line x1="18" y1="5"  x2="18" y2="14" stroke="#254037" stroke-width="0.5" opacity="0.4"/>
+        <path d="M14 27.5 L22 27.5 L21 31 L15 31 Z" fill="#254037" opacity="0.75"/>
+        <line x1="18" y1="27.5" x2="18" y2="20.4" stroke="#254037" stroke-width="1.1" stroke-linecap="round"/>
+        <ellipse cx="16.2" cy="24.5" rx="1.5" ry="0.8" fill="#254037" opacity="0.55" transform="rotate(-30 16.2 24.5)"/>
+        <ellipse cx="19.8" cy="25.5" rx="1.5" ry="0.8" fill="#254037" opacity="0.55" transform="rotate(30 19.8 25.5)"/>
+        <circle cx="18"   cy="18.2" r="1.05" fill="#8a3a4c"/>
+        <circle cx="18"   cy="20.6" r="1.05" fill="#8a3a4c"/>
+        <circle cx="16.3" cy="19.4" r="1.05" fill="#8a3a4c"/>
+        <circle cx="19.7" cy="19.4" r="1.05" fill="#8a3a4c"/>
+        <circle cx="18"   cy="19.4" r="0.7"  fill="#faf7f2"/>
+      </svg>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="beyond.html">Beyond</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page-head">
+    <div class="eyebrow">M.Sc. Thesis · 2022 · Humanoid Locomotion</div>
+    <h1 class="serif">Deep RL for walking control of a <em>biped robot</em>.</h1>
+    <p class="lede">
+      Teaching the Surena IV humanoid to walk in simulation, with a method that shrinks the learning problem by letting reinforcement learning shape <em>trajectories</em> while classical kinematics handles the joints.
+    </p>
+    <div class="quick" style="margin-top: 20px;">
+      <span>Sole author</span>
+      <span>· CAST, University of Tehran</span>
+      <span>· Advisors: A. Yousefi-Koma, M. Shariat-Panahi</span>
+    </div>
+    <div class="thesis-links" style="margin-top: 22px;">
+      <a href="assets/thesis-summary.pdf" target="_blank" rel="noopener">English summary (PDF)</a>
+      <a href="https://drive.google.com/file/d/1oAQUQ0mS-Le6bAdEVWer_EZFW3R2ci69/view?usp=sharing" target="_blank" rel="noopener">Original Persian thesis</a>
+      <a href="https://github.com/RHnejad/gym-Surena" target="_blank" rel="noopener">Code</a>
+    </div>
+    <p class="note" style="margin-top:28px;">
+      <b>About this page.</b> This is an English summary of my Master's thesis (University of Tehran, 2022); the full thesis is written in Persian. The summary was prepared in 2026, translated and condensed with the help of Claude (Anthropic), keeping every method, number, and limitation intact. It reflects what was achievable and known in 2022.
+    </p>
+  </section>
+
+  <section id="problem">
+    <h2 class="section-title">The problem</h2>
+    <div class="prose">
+      <p>
+        A walking humanoid is high-dimensional, underactuated, and only touches the ground intermittently, so balance has to be actively maintained at every instant. Classical control solves this with reduced-order models and explicit balance criteria like the Zero-Moment Point, but each controller takes heavy, model-specific engineering. Reinforcement learning promises a model-light alternative, yet for a full-size humanoid the action space is large and balance is fragile, so naïve end-to-end learning struggles.
+      </p>
+      <p>
+        This thesis asks a focused question: <b>can we make RL tractable for humanoid walking by giving it the right structure</b>, rather than asking a network to rediscover joint-level coordination from scratch? The testbed is <b>Surena IV</b>, a full-size adult humanoid built at the Center of Advanced Systems and Technologies (CAST) at the University of Tehran, simulated from its URDF model in PyBullet, controlling twelve lower-body degrees of freedom (six per leg).
+      </p>
+    </div>
+    <figure>
+      <img src="assets/thesis/robot_pybullet.png" alt="Surena IV humanoid robot in the PyBullet simulator" />
+      <figcaption>
+        <b>Surena IV</b> in the PyBullet physics simulator, imported from its URDF model. The controller acts on the twelve lower-body joints: hip yaw/roll/pitch, knee pitch, and ankle pitch/roll on each leg.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="method">
+    <h2 class="section-title">Two environments, two philosophies</h2>
+    <div class="prose">
+      <p>
+        I built two RL environments. The first is a flexible baseline that commands the motors directly. The second is the thesis's main methodological idea: shrink the action space by letting the agent shape <em>trajectories</em>, with classical inverse kinematics doing the joint-level math.
+      </p>
+    </div>
+
+    <div class="envs">
+      <div class="env one">
+        <p class="tag">Environment 1 · Baseline</p>
+        <h3>Direct motor control</h3>
+        <p class="role">A configurable testbed: swap the action type and the number of joints under a shared reward.</p>
+        <div class="flow">
+          policy → <span class="hl">joint commands</span><br/>
+          (torque / position / velocity)<br/>
+          → 10–12 actuators → simulator
+        </div>
+        <span class="micro">Large action space</span>
+      </div>
+
+      <div class="env two">
+        <p class="tag">Environment 2 · Contribution</p>
+        <h3>Hybrid trajectory control</h3>
+        <p class="role">The agent shapes trajectories; analytic inverse kinematics produces the joint angles.</p>
+        <div class="flow">
+          policy → <span class="hl">Δ trajectory</span> [Δx, Δy, Δz]<br/>
+          → CoM &amp; swing-foot paths<br/>
+          → inverse kinematics → joints
+        </div>
+        <span class="micro">Small action space</span>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:22px;">
+      <p>
+        Instead of emitting ten-plus joint commands every step, the policy in Environment 2 outputs small increments <b>[Δx, Δy, Δz]</b> to the <b>center-of-mass</b> and <b>swing-foot</b> trajectories. The CoM path is built from an inverted-pendulum walking model (lateral sway set relative to the support foot, CoM height held near 0.7 m); the agent perturbs the CoM's x/y and the swing ankle's x/z, nudging the reference paths a classical planner would otherwise fix. A closed-form <b>inverse-kinematics</b> block for the Surena IV leg turns the desired pelvis and foot poses into joint angles, run separately for each leg from the pelvis/foot poses and the thigh, pelvis, and shank link lengths.
+      </p>
+      <p>
+        Two engineering details make it work: a fixed offset vector reconciles the classical method's reference points with what PyBullet actually reports (the ankle-link and pelvis centers of mass), so feedback stays consistent with the planner's assumptions; and the stance/swing hand-off is triggered from <b>foot-contact forces</b>. When force under the swing foot builds over several steps, the support foot switches, with a brief double-support phase in between. The Zero-Moment Point, computed from the same contact forces, is monitored against the support polygon for balance. The expressive machinery of classical walking stays in the loop; the network only has to learn a handful of trajectory parameters.
+      </p>
+    </div>
+
+    <div class="fig-row">
+      <figure>
+        <img src="assets/thesis/env1_architecture.png" alt="Baseline environment step function" />
+        <figcaption>
+          <b>Baseline (Env 1).</b> Actions are mapped straight to motor commands (θ or τ) and applied in PyBullet, with no trajectory or kinematics block.
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/thesis/architecture.png" alt="Architecture of the hybrid environment step function" />
+        <figcaption>
+          <b>Hybrid (Env 2).</b> Actions become CoM/ankle trajectory increments, inverse kinematics maps them to joint angles, then PyBullet executes them.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="fig-row" style="margin-top:8px;">
+      <figure>
+        <div class="fig-wrap">
+          <img src="assets/thesis/trajectory_schematic.png" alt="CoM and swing-foot trajectories, side and top view" />
+          <div class="fig-cover" style="height:13%;">
+            <span>(b) Right-side view</span>
+            <span>(a) Top view</span>
+          </div>
+        </div>
+        <figcaption>What the agent shapes: the CoM and swing-foot trajectories (side view, left; top view, right).</figcaption>
+      </figure>
+      <figure>
+        <div class="fig-wrap">
+          <img src="assets/thesis/traj_tracking.png" alt="Commanded versus achieved trajectories" />
+          <div class="fig-cover" style="height:15%;">
+            <span>(c) Left ankle</span>
+            <span>(b) Right ankle</span>
+            <span>(a) CoM &amp; robot base</span>
+          </div>
+        </div>
+        <figcaption>Commanded vs. achieved trajectories. Close tracking confirms the IK block realises what the agent asks for.</figcaption>
+      </figure>
+    </div>
+
+    <div class="prose" style="margin-top:20px;">
+      <p>
+        For the learning algorithm, I compared <b>PPO, DDPG, TD3, and SAC</b>, and chose <b>PPO</b> for its stability on high-dimensional continuous control. The reward is a weighted sum of interpretable, biomechanically-motivated terms: forward progress and velocity, survival time, and foot placement on the positive side; energy use, sideways drift, and upper-body tilt on the negative side. Any term can be zeroed out for ablation or wrapped in a shaping function, and there are dedicated sub-rewards for landing the swing foot flat and (optionally) for imitating a reference human gait.
+      </p>
+      <p>
+        One design choice I think holds up: rather than ending an episode the moment the Zero-Moment Point leaves the support polygon, I treat that as a <b>soft penalty in the reward</b>, not a hard failure. The ZMP-in-polygon test is sufficient but not necessary for staying upright. A robot can briefly tip onto a foot edge and still recover, so a hard test would kill promising episodes early. Falls are instead detected from center-of-mass height.
+      </p>
+    </div>
+    <div class="interests" style="margin-top:20px;">
+      <span class="chip clay">PyBullet</span>
+      <span class="chip">OpenAI Gym</span>
+      <span class="chip">PyTorch</span>
+      <span class="chip">Stable-Baselines · PPO</span>
+      <span class="chip">Optuna</span>
+      <span class="chip">Analytic IK</span>
+      <span class="chip">ZMP balance</span>
+    </div>
+  </section>
+
+  <section id="findings">
+    <h2 class="section-title">What I found</h2>
+    <ul class="find">
+      <li>
+        <span class="k">01</span>
+        <span><b>It learns to balance and step forward.</b> Across runs the episode reward rose steadily, with a consistent progression: stand and balance first, then walk forward. The direct-control approach kept balance through the whole episode; the hybrid approach made it about two forward steps (~70 cm) before stalling.</span>
+      </li>
+      <li>
+        <span class="k">02</span>
+        <span><b>The agent gamed an under-specified reward.</b> When the reward emphasised only forward CoM motion, the policy found it easier to stay balanced by walking <em>backward</em>. A clean example of reward exploitation that drove the final reward design.</span>
+      </li>
+      <li>
+        <span class="k">03</span>
+        <span><b>Recovery is the hard part.</b> The open challenge is returning from a near-unstable state back to balance, identified as the key direction for future work alongside sim-to-real transfer to the physical robot.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="why">
+    <h2 class="section-title">Why it still matters</h2>
+    <div class="prose">
+      <p>
+        Seen from 2022, when end-to-end joint-level RL was the dominant trend, choosing to embed classical structure and let RL operate on trajectories was a deliberate, forward-looking bet. The field has since kept moving that way: layering learning on top of model-based controllers and trajectory generators is now a standard recipe for tractable, sample-efficient legged locomotion. The instinct at the core of this thesis, <em>don't make the network relearn what kinematics already gives you</em>, held up.
+      </p>
+    </div>
+  </section>
+
+  <section id="extras">
+    <h2 class="section-title">Extras</h2>
+    <div class="prose">
+      <p>
+        A few additional views from the thesis, for anyone who wants a closer look. The complete original (Persian) thesis is <a href="https://drive.google.com/file/d/1oAQUQ0mS-Le6bAdEVWer_EZFW3R2ci69/view?usp=sharing" target="_blank" rel="noopener">here</a>, and the English summary PDF is <a href="assets/thesis-summary.pdf" target="_blank" rel="noopener">here</a>. The full implementation (custom Gym environments, trajectory generation, inverse kinematics, training scripts) is on GitHub: <a href="https://github.com/RHnejad/gym-Surena" target="_blank" rel="noopener">github.com/RHnejad/gym-Surena</a>.
+      </p>
+    </div>
+
+    <h3 style="font-family:var(--display); font-weight:500; font-size:19px; margin:28px 0 10px;">The concepts behind it</h3>
+    <div class="prose">
+      <p>
+        Human walking alternates a <b>stance</b> phase (the foot supporting the body) with a <b>swing</b> phase (the foot in the air, advancing). The swing-foot trajectory the agent learns is exactly that swing motion.
+      </p>
+    </div>
+    <figure>
+      <div class="fig-wrap">
+        <img src="assets/thesis/gait_cycle.png" alt="The human gait cycle" />
+        <div class="fig-cover" style="height:16%;">
+          <span>Stance phase</span>
+          <span>Swing phase</span>
+        </div>
+      </div>
+      <figcaption>The human gait cycle, with the standard gait events.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/thesis/inverted_pendulum.png" alt="Linear inverted pendulum model" style="max-width:480px; margin:0 auto;" />
+      <figcaption style="max-width:480px; margin-left:auto; margin-right:auto;">The <b>linear inverted-pendulum</b> model, a point mass at height Z<sub>c</sub>, gives the CoM dynamics the hybrid trajectory builds on.</figcaption>
+    </figure>
+
+    <h3 style="font-family:var(--display); font-weight:500; font-size:19px; margin:28px 0 10px;">From the experiments</h3>
+    <figure>
+      <img src="assets/thesis/frame_sequence.png" alt="Frames of the robot walking in simulation" />
+      <figcaption>Frames from a training episode: the robot keeps its balance while moving forward.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/thesis/observation_grid.png" alt="The full observation space over one episode" />
+      <figcaption>Everything the agent observes over one episode: joint angles and velocities, center-of-mass position and velocity, pelvis orientation and angular velocity, and the contact force under each foot (the last two traces show the gait cycle).</figcaption>
+    </figure>
+    <div class="fig-row">
+      <figure>
+        <img src="assets/thesis/curve_position.png" alt="Position-control learning curve" />
+        <figcaption><b>Position control.</b> Reward climbs with occasional drops; PPO's clipping keeps it from diverging.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/thesis/curve_torque.png" alt="Torque-control learning curve" />
+        <figcaption><b>Torque control.</b> Converges sooner, then plateaus.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <div>© <span id="year">2026</span> · Reyhaneh Hosseininejad</div>
+      <div><a href="projects.html" style="border-bottom:none; color:inherit;">← Back to projects</a></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

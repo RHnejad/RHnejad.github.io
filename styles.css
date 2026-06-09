@@ -327,6 +327,15 @@
   margin: 8px 0 16px;
   font-weight: 400;
 }
+/* For pages whose title is long/technical and needs serif legibility — uses the
+   same family as .project-title (Playfair Display) but sized for a page header. */
+.page-head h1.serif {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(30px, 4.6vw, 46px);
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
 .page-head p.lede {
   font-family: var(--display);
   font-weight: 400;
@@ -495,4 +504,99 @@
 
 @media (max-width: 720px) {
   .projects-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* ─────────────────────────────────────────────
+   Thesis page (thesis.html)
+   ───────────────────────────────────────────── */
+
+.note {
+  margin: 8px 0 0;
+  padding: 16px 20px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--moss);
+  font-size: 14px; line-height: 1.55; color: var(--ink-soft);
+}
+.note b { color: var(--ink); font-weight: 600; }
+
+.envs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 8px 0 4px; }
+.env {
+  position: relative; overflow: hidden;
+  padding: 22px 22px 18px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+}
+.env.one { border-left: 2px solid var(--ink-soft); }
+.env.two { border-left: 2px solid var(--moss); }
+.env .tag {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px;
+}
+.env.two .tag { color: var(--moss); }
+.env h3 {
+  font-family: var(--display); font-weight: 500;
+  font-size: 19px; margin: 0 0 6px; letter-spacing: -0.005em;
+}
+.env .role { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; }
+.env .flow {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.85;
+  color: var(--ink); background: var(--paper);
+  border: 1px solid var(--rule); padding: 10px 14px;
+}
+.env .flow .hl { color: var(--clay-deep); font-weight: 600; }
+.env .micro {
+  display: inline-block; margin-top: 14px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.env.two .micro { color: var(--moss); }
+
+figure { margin: 24px 0; }
+figure img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--rule); background: #fff;
+}
+figcaption {
+  font-family: var(--mono); font-size: 12px; line-height: 1.55;
+  color: var(--muted); margin-top: 10px;
+}
+figcaption b { color: var(--ink-soft); font-weight: 600; }
+.fig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.fig-row figure { margin: 0; }
+
+/* Wraps an <img> so we can overlay an English label band over the original
+   figure's Farsi caption strip — same idea as the LaTeX overlayimg{} macro. */
+.fig-wrap { position: relative; line-height: 0; }
+.fig-wrap img { display: block; }
+.fig-wrap .fig-cover {
+  position: absolute; left: 1px; right: 1px; bottom: 1px;
+  background: #fff;
+  display: flex; align-items: center;
+  font-family: var(--mono); font-size: 12px; color: var(--ink);
+  line-height: 1.2;
+}
+.fig-wrap .fig-cover span { flex: 1; text-align: center; }
+
+.find { list-style: none; padding: 0; margin: 6px 0 0; }
+.find li {
+  padding: 16px 0;
+  display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start;
+  background-image: var(--pen-line);
+  background-repeat: repeat-x;
+  background-position: top left;
+  background-size: 160px 6px;
+}
+.find li:first-child { background-image: none; padding-top: 6px; }
+.find .k {
+  font-family: var(--mono); font-size: 13px; color: var(--moss); font-weight: 600;
+}
+.find b { font-weight: 600; color: var(--ink); }
+
+.thesis-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.thesis-links a { border-bottom: none; color: var(--moss); }
+.thesis-links a::after { content: " →"; }
+
+@media (max-width: 720px) {
+  .envs, .fig-row { grid-template-columns: 1fr; }
 }

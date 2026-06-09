@@ -15,3 +15,6 @@ Thumbs.db
 # Local server / dev artifacts
 /tmp/
 *.bak
+
+# Source materials kept locally only (not for the public site)
+master_thesis/
