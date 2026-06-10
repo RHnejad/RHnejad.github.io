@@ -53,8 +53,7 @@
       Teaching the Surena IV humanoid to walk in simulation, with a method that shrinks the learning problem by letting reinforcement learning shape <em>trajectories</em> while classical kinematics handles the joints.
     </p>
     <div class="quick" style="margin-top: 20px;">
-      <span>Sole author</span>
-      <span>· CAST, University of Tehran</span>
+      <span>CAST, University of Tehran</span>
       <span>· Advisors: A. Yousefi-Koma, M. Shariat-Panahi</span>
     </div>
     <div class="thesis-links" style="margin-top: 22px;">
@@ -63,7 +62,7 @@
       <a href="https://github.com/RHnejad/gym-Surena" target="_blank" rel="noopener">Code</a>
     </div>
     <p class="note" style="margin-top:28px;">
-      <b>About this page.</b> This is an English summary of my Master's thesis (University of Tehran, 2022); the full thesis is written in Persian. The summary was prepared in 2026, translated and condensed with the help of Claude (Anthropic), keeping every method, number, and limitation intact. It reflects what was achievable and known in 2022.
+      <b>About this page.</b> This is an English summary of my Master's thesis (University of Tehran, 2022); the full thesis is written in Persian. The summary was prepared in 2026, translated and condensed with the help of Claude (Anthropic), keeping every method, number, and limitation intact.
     </p>
   </section>
 
@@ -172,7 +171,7 @@
         For the learning algorithm, I compared <b>PPO, DDPG, TD3, and SAC</b>, and chose <b>PPO</b> for its stability on high-dimensional continuous control. The reward is a weighted sum of interpretable, biomechanically-motivated terms: forward progress and velocity, survival time, and foot placement on the positive side; energy use, sideways drift, and upper-body tilt on the negative side. Any term can be zeroed out for ablation or wrapped in a shaping function, and there are dedicated sub-rewards for landing the swing foot flat and (optionally) for imitating a reference human gait.
       </p>
       <p>
-        One design choice I think holds up: rather than ending an episode the moment the Zero-Moment Point leaves the support polygon, I treat that as a <b>soft penalty in the reward</b>, not a hard failure. The ZMP-in-polygon test is sufficient but not necessary for staying upright. A robot can briefly tip onto a foot edge and still recover, so a hard test would kill promising episodes early. Falls are instead detected from center-of-mass height.
+        Rather than ending an episode the moment the Zero-Moment Point leaves the support polygon, I treat that as a <b>soft penalty in the reward</b>, not a hard failure. The ZMP-in-polygon test is sufficient but not necessary for staying upright: a robot can briefly tip onto a foot edge and still recover, so a hard test would kill promising episodes early. Falls are detected from center-of-mass height instead.
       </p>
     </div>
     <div class="interests" style="margin-top:20px;">
@@ -208,7 +207,7 @@
     <h2 class="section-title">Why it still matters</h2>
     <div class="prose">
       <p>
-        Seen from 2022, when end-to-end joint-level RL was the dominant trend, choosing to embed classical structure and let RL operate on trajectories was a deliberate, forward-looking bet. The field has since kept moving that way: layering learning on top of model-based controllers and trajectory generators is now a standard recipe for tractable, sample-efficient legged locomotion. The instinct at the core of this thesis, <em>don't make the network relearn what kinematics already gives you</em>, held up.
+        In 2022, end-to-end joint-level RL was the dominant trend; embedding classical structure and letting RL operate on trajectories instead went against that grain. The field has since moved in this direction: layering learning on top of model-based controllers and trajectory generators is now a standard recipe for tractable, sample-efficient legged locomotion.
       </p>
     </div>
   </section>
