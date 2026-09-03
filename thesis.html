@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RL Locomotion for Surena IV — Master's Thesis — Reyhaneh Hosseininejad</title>
+  <title>RL Locomotion for Surena IV | Master's Thesis | Reyhaneh Hosseininejad</title>
   <meta name="description" content="English summary of Reyhaneh Hosseininejad's 2022 M.Sc. thesis: deep reinforcement learning for walking control of the Surena IV humanoid via trajectory-level control." />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -73,7 +74,7 @@
         A walking humanoid is high-dimensional, underactuated, and only touches the ground intermittently, so balance has to be actively maintained at every instant. Classical control solves this with reduced-order models and explicit balance criteria like the Zero-Moment Point, but each controller takes heavy, model-specific engineering. Reinforcement learning promises a model-light alternative, yet for a full-size humanoid the action space is large and balance is fragile, so naïve end-to-end learning struggles.
       </p>
       <p>
-        This thesis asks a focused question: <b>can we make RL tractable for humanoid walking by giving it the right structure</b>, rather than asking a network to rediscover joint-level coordination from scratch? The testbed is <b>Surena IV</b>, a full-size adult humanoid built at the Center of Advanced Systems and Technologies (CAST) at the University of Tehran, simulated from its URDF model in PyBullet, controlling twelve lower-body degrees of freedom (six per leg).
+        The main question is whether added structure can make RL more tractable for humanoid walking, instead of asking a network to learn joint-level coordination from scratch. The testbed is <b>Surena IV</b>, a full-size adult humanoid built at the Center of Advanced Systems and Technologies (CAST) at the University of Tehran. I simulated its URDF model in PyBullet and controlled twelve lower-body degrees of freedom (six per leg).
       </p>
     </div>
     <figure>
@@ -194,7 +195,7 @@
       </li>
       <li>
         <span class="k">02</span>
-        <span><b>The agent gamed an under-specified reward.</b> When the reward emphasised only forward CoM motion, the policy found it easier to stay balanced by walking <em>backward</em>. A clean example of reward exploitation that drove the final reward design.</span>
+        <span><b>The agent gamed an under-specified reward.</b> When the reward emphasised only forward CoM motion, the policy found it easier to stay balanced by walking <em>backward</em>. This failure shaped the final reward design.</span>
       </li>
       <li>
         <span class="k">03</span>
@@ -207,7 +208,7 @@
     <h2 class="section-title">Why it still matters</h2>
     <div class="prose">
       <p>
-        In 2022, end-to-end joint-level RL was the dominant trend; embedding classical structure and letting RL operate on trajectories instead went against that grain. The field has since moved in this direction: layering learning on top of model-based controllers and trajectory generators is now a standard recipe for tractable, sample-efficient legged locomotion.
+        In 2022, most work focused on end-to-end joint-level RL. This thesis instead kept classical structure in the controller and used RL to modify trajectories. Hybrid approaches that combine learning with model-based controllers and trajectory generators have since become more common in legged locomotion.
       </p>
     </div>
   </section>
@@ -216,7 +217,7 @@
     <h2 class="section-title">Extras</h2>
     <div class="prose">
       <p>
-        A few additional views from the thesis, for anyone who wants a closer look. The complete original (Persian) thesis is <a href="https://drive.google.com/file/d/1oAQUQ0mS-Le6bAdEVWer_EZFW3R2ci69/view?usp=sharing" target="_blank" rel="noopener">here</a>, and the English summary PDF is <a href="assets/thesis-summary.pdf" target="_blank" rel="noopener">here</a>. The full implementation (custom Gym environments, trajectory generation, inverse kinematics, training scripts) is on GitHub: <a href="https://github.com/RHnejad/gym-Surena" target="_blank" rel="noopener">github.com/RHnejad/gym-Surena</a>.
+        Below are additional figures from the thesis. The complete original (Persian) thesis is <a href="https://drive.google.com/file/d/1oAQUQ0mS-Le6bAdEVWer_EZFW3R2ci69/view?usp=sharing" target="_blank" rel="noopener">here</a>, and the English summary PDF is <a href="assets/thesis-summary.pdf" target="_blank" rel="noopener">here</a>. The implementation, including custom Gym environments, trajectory generation, inverse kinematics, and training scripts, is on GitHub: <a href="https://github.com/RHnejad/gym-Surena" target="_blank" rel="noopener">github.com/RHnejad/gym-Surena</a>.
       </p>
     </div>
 
