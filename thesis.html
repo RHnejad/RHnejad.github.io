@@ -51,7 +51,7 @@
     <div class="eyebrow">M.Sc. Thesis · 2022 · Humanoid Locomotion</div>
     <h1 class="serif">Deep RL for walking control of a <em>biped robot</em>.</h1>
     <p class="lede">
-      Teaching the Surena IV humanoid to walk in simulation, with a method that shrinks the learning problem by letting reinforcement learning shape <em>trajectories</em> while classical kinematics handles the joints.
+      Teaching the Surena IV humanoid to walk in simulation by having reinforcement learning shape <em>trajectories</em> while classical kinematics handles the joints.
     </p>
     <div class="quick" style="margin-top: 20px;">
       <span>CAST, University of Tehran</span>
@@ -63,7 +63,7 @@
       <a href="https://github.com/RHnejad/gym-Surena" target="_blank" rel="noopener">Code</a>
     </div>
     <p class="note" style="margin-top:28px;">
-      <b>About this page.</b> This is an English summary of my Master's thesis (University of Tehran, 2022); the full thesis is written in Persian. The summary was prepared in 2026, translated and condensed with the help of Claude (Anthropic), keeping every method, number, and limitation intact.
+      <b>About this page.</b> This is an English summary of my Master's thesis (University of Tehran, 2022); the full thesis is written in Persian. It covers the method, experiments, results, and limitations described in the original thesis.
     </p>
   </section>
 
@@ -86,10 +86,10 @@
   </section>
 
   <section id="method">
-    <h2 class="section-title">Two environments, two philosophies</h2>
+    <h2 class="section-title">Two control environments</h2>
     <div class="prose">
       <p>
-        I built two RL environments. The first is a flexible baseline that commands the motors directly. The second is the thesis's main methodological idea: shrink the action space by letting the agent shape <em>trajectories</em>, with classical inverse kinematics doing the joint-level math.
+        I built two RL environments. The first is a baseline that commands the motors directly. The second reduces the action space by letting the agent shape <em>trajectories</em>, with classical inverse kinematics calculating the joint angles.
       </p>
     </div>
 
@@ -97,7 +97,7 @@
       <div class="env one">
         <p class="tag">Environment 1 · Baseline</p>
         <h3>Direct motor control</h3>
-        <p class="role">A configurable testbed: swap the action type and the number of joints under a shared reward.</p>
+        <p class="role">The action type and number of joints can be changed while keeping the same reward.</p>
         <div class="flow">
           policy → <span class="hl">joint commands</span><br/>
           (torque / position / velocity)<br/>
@@ -109,7 +109,7 @@
       <div class="env two">
         <p class="tag">Environment 2 · Contribution</p>
         <h3>Hybrid trajectory control</h3>
-        <p class="role">The agent shapes trajectories; analytic inverse kinematics produces the joint angles.</p>
+        <p class="role">The agent shapes trajectories, and analytic inverse kinematics produces the joint angles.</p>
         <div class="flow">
           policy → <span class="hl">Δ trajectory</span> [Δx, Δy, Δz]<br/>
           → CoM &amp; swing-foot paths<br/>
@@ -124,7 +124,7 @@
         Instead of emitting ten-plus joint commands every step, the policy in Environment 2 outputs small increments <b>[Δx, Δy, Δz]</b> to the <b>center-of-mass</b> and <b>swing-foot</b> trajectories. The CoM path is built from an inverted-pendulum walking model (lateral sway set relative to the support foot, CoM height held near 0.7 m); the agent perturbs the CoM's x/y and the swing ankle's x/z, nudging the reference paths a classical planner would otherwise fix. A closed-form <b>inverse-kinematics</b> block for the Surena IV leg turns the desired pelvis and foot poses into joint angles, run separately for each leg from the pelvis/foot poses and the thigh, pelvis, and shank link lengths.
       </p>
       <p>
-        Two engineering details make it work: a fixed offset vector reconciles the classical method's reference points with what PyBullet actually reports (the ankle-link and pelvis centers of mass), so feedback stays consistent with the planner's assumptions; and the stance/swing hand-off is triggered from <b>foot-contact forces</b>. When force under the swing foot builds over several steps, the support foot switches, with a brief double-support phase in between. The Zero-Moment Point, computed from the same contact forces, is monitored against the support polygon for balance. The expressive machinery of classical walking stays in the loop; the network only has to learn a handful of trajectory parameters.
+        Two engineering details are important. A fixed offset vector reconciles the classical method's reference points with the ankle-link and pelvis centers of mass reported by PyBullet. This keeps feedback consistent with the planner's assumptions. The stance/swing hand-off is triggered by <b>foot-contact forces</b>. When force under the swing foot builds over several steps, the support foot switches, with a brief double-support phase in between. The Zero-Moment Point, computed from the same contact forces, is monitored against the support polygon for balance. The controller keeps the classical walking components, while the network learns a small set of trajectory parameters.
       </p>
     </div>
 
