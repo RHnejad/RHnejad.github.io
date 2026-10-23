@@ -95,6 +95,8 @@
 
   /* — Layout — */
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  /* Homepage: hide the notebook grid behind the central column, keep it in the margins */
+  .wrap.plain-center { position: relative; z-index: 1; background: var(--paper); }
   section {
     padding: 64px 0;
     background-image: var(--pen-line);
@@ -457,6 +459,7 @@
   body { font-size: 11pt; color: #000; background: #fff; }
   a { color: #000; border-bottom: none; }
   .wrap { max-width: 100%; padding: 0; }
+  .wrap.plain-center { background: none; }
   section, .cv-section { padding: 12pt 0; page-break-inside: avoid; }
 }
 
