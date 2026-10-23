@@ -66,10 +66,10 @@
         <h1 class="name"><span class="name-accent">R</span>eyhaneh<span class="name-line2"><span class="name-accent">H</span>osseini<em>nejad</em></span></h1>
         <div class="eyebrow">PhD Researcher · <a href="https://www.epfl.ch/labs/vita/" target="_blank" rel="noopener" style="border-bottom:none;color:var(--clay-deep);">VITA Lab</a> · EPFL<span class="eyebrow-sub">Advised by <a href="https://people.epfl.ch/alexandre.alahi" target="_blank" rel="noopener" style="border-bottom:none;color:inherit;">Prof. Alexandre Alahi</a></span></div>
         <p class="lede">
-          PhD researcher in robotics at EPFL, working on computer vision and machine learning for 3D human motion. Background in humanoid robotics and control.
+          My PhD research is on 3D human motion. I started with 3D pose estimation, moved to multimodal pose forecasting (<em>CVPR 2025</em>), and now work on physics-informed generation and evaluation of human–human interaction (<em>RA-L 2025</em>), using GPU-accelerated simulation and reinforcement learning. Before my PhD, I worked on humanoid robotics, training reinforcement-learning locomotion controllers for the Surena IV humanoid.
         </p>
         <p class="job-status">
-          I expect to complete my PhD in 2027 and am looking for Research Scientist and Research Engineer roles in computer vision, machine learning, and robotics. I can coordinate the final thesis requirements with a new position and expect to be available within about three months, depending on the remaining requirements.
+          I am open to both <strong>research internships</strong> and <strong>full-time Research Scientist / Research Engineer roles</strong> in computer vision, machine learning, and robotics. I expect to complete my PhD in 2027, and the exact month is flexible depending on the position.
         </p>
         <div class="interests" style="margin-top:20px;">
           <span class="chip clay">Robotics</span>
@@ -77,50 +77,48 @@
           <span class="chip clay">3D Human Pose</span>
           <span class="chip clay">Pose Forecasting</span>
           <span class="chip clay">Physics-Informed Generation</span>
-          <span class="chip clay">Multimodality</span>
+          <span class="chip clay">Human–Human Interaction</span>
+          <span class="chip clay">Reinforcement Learning</span>
         </div>
         <div class="quick" style="margin-top:18px;">
           <span>Lausanne, CH · EPFL EDRS</span>
-          <span>· <a href="mailto:reyhaneh.hosseininejad@epfl.ch">reyhaneh.hosseininejad@epfl.ch</a></span>
         </div>
       </div>
-      <img
-        src="assets/2026-09-03%2023.16.52.jpg?v=20260903"
-        alt="Reyhaneh Hosseininejad in the mountains"
-        style="
-          width:220px; height:220px; flex-shrink:0;
-          object-fit:contain; object-position:center;
-          display:block; position:relative; z-index:0;
-        "
-      />
+      <div class="photo-col">
+        <img
+          src="assets/2026-09-03%2023.16.52.jpg?v=20260903"
+          alt="Reyhaneh Hosseininejad in the mountains"
+          style="
+            width:220px; height:220px; flex-shrink:0;
+            object-fit:contain; object-position:center;
+            display:block; position:relative; z-index:0;
+          "
+        />
+        <nav class="photo-links" aria-label="Profiles">
+          <a href="mailto:reyhaneh.hosseininejad@epfl.ch">Email</a>
+          <a href="https://www.linkedin.com/in/reyhaneh-hosseininejad-a2b54b138/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://scholar.google.com/scholar?q=Reyhaneh+Hosseininejad" target="_blank" rel="noopener">Scholar</a>
+          <a href="cv.html">CV</a>
+        </nav>
+      </div>
     </div>
-  </section>
-
-  <!-- ============ ABOUT ============ -->
-  <section id="about" class="prose">
-    <h2 class="section-title">About</h2>
-    <p>
-      I'm a PhD researcher in robotics at EPFL (EDRS), advised by <a href="https://people.epfl.ch/alexandre.alahi" target="_blank" rel="noopener">Prof. Alexandre Alahi</a> at the <a href="https://www.epfl.ch/labs/vita/" target="_blank" rel="noopener">VITA Lab</a>. I use <em>computer vision, machine learning, and robotics</em> to study 3D human motion, including pose estimation, forecasting, and physics-informed generation (CVPR 2025, RA-L 2025).
-    </p>
-    <p>
-      My background is in humanoid robotics, control, and manipulation. I have also supervised student projects on 3D car pose estimation and lane detection.
-    </p>
   </section>
 
   <!-- ============ PUBLICATIONS ============ -->
   <section id="research">
     <h2 class="section-title">Selected Publications</h2>
 
-    <article class="pub">
+    <article class="pub has-fig">
       <div class="venue">In Preparation<small>2026</small></div>
       <div>
         <h3 class="title">Physics-Derived Plausibility Metrics for 3D Human–Human Motion Generation</h3>
         <p class="authors"><b>Reyhaneh Hosseininejad</b>, T. Van Der Meer, M. Shukla, A. Alahi</p>
         <p class="pub-abstract">Metrics for evaluating generative models of human–human interaction using physical simulation, rather than statistical distance from ground truth alone.</p>
       </div>
+      <img class="pub-fig" src="assets/proj-physics.jpg" alt="Physics-simulated humanoid pairs interacting" loading="lazy" />
     </article>
 
-    <article class="pub">
+    <article class="pub has-fig">
       <div class="venue">CVPR<small>2025</small></div>
       <div>
         <h3 class="title">MotionMap: Representing Multimodality in Human Pose Forecasting</h3>
@@ -133,9 +131,10 @@
           <a href="https://www.epfl.ch/labs/vita/research/prediction/motionmap/" target="_blank" rel="noopener">Project</a>
         </div>
       </div>
+      <img class="pub-fig" src="assets/proj-motionmap.jpg" alt="MotionMap: observed poses mapped to several forecasted futures" loading="lazy" />
     </article>
 
-    <article class="pub">
+    <article class="pub has-fig">
       <div class="venue">RA-L<small>2025</small></div>
       <div>
         <h3 class="title">HHI-Assist: A Dataset and Benchmark of Human–Human Interaction in Physical Assistance</h3>
@@ -147,9 +146,10 @@
           <a href="https://sites.google.com/view/hhi-assist/home" target="_blank" rel="noopener">Project &amp; Data</a>
         </div>
       </div>
+      <img class="pub-fig" src="assets/proj-hhiassist.jpg" alt="HHI-Assist: motion capture of a caregiver assisting a person" loading="lazy" />
     </article>
 
-    <article class="pub">
+    <article class="pub has-fig">
       <div class="venue">Under Review<small>2026</small></div>
       <div>
         <h3 class="title">PoseDriver: A Unified Approach to Multi-Category Skeleton Detection for Autonomous Driving Assistance</h3>
@@ -159,15 +159,11 @@
           <a href="https://arxiv.org/abs/2603.23215" target="_blank" rel="noopener">arXiv</a>
         </div>
       </div>
+      <img class="pub-fig" src="assets/proj-posedriver.jpg" alt="PoseDriver: skeleton detection on road users and lane markings" loading="lazy" />
     </article>
 
     <p class="authors" style="margin-top:20px;"><span class="equal">*</span> Equal contribution</p>
 
-    <p style="margin-top:36px; font-family:var(--mono); font-size:12px; letter-spacing:0.05em;">
-      <a href="https://people.epfl.ch/reyhaneh.hosseininejad" target="_blank" rel="noopener">EPFL profile →</a>
-      &nbsp;&nbsp;
-      <a href="https://scholar.google.com/scholar?q=Reyhaneh+Hosseininejad" target="_blank" rel="noopener">Google Scholar →</a>
-    </p>
   </section>
 
   <!-- ============ CONTACT ============ -->
@@ -212,7 +208,7 @@
   <footer>
     <div class="row">
       <div>© <span id="year">2026</span> · Reyhaneh Hosseininejad</div>
-      <div>Last updated September 2026</div>
+      <div>Last updated October 2026</div>
     </div>
   </footer>
 

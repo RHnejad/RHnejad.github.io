@@ -137,7 +137,13 @@
     display: inline-flex; align-items: center; justify-content: center;
     transition: color .15s, background-color .15s, border-color .15s, transform .15s;
   }
-  .theme-toggle:hover { color: var(--moss); border-color: var(--moss); transform: rotate(8deg); }
+  .theme-toggle:hover { border-color: currentColor; transform: rotate(8deg); }
+  /* Hades II-inspired icons: violet moon magick (light theme), Apollo gold sun (dark theme) */
+  .theme-toggle { color: #4b3c7d; }
+  [data-theme="dark"] .theme-toggle { color: #f0c062; }
+  .theme-toggle svg { display: block; transition: filter .25s, transform .6s ease; }
+  .theme-toggle:hover svg { filter: drop-shadow(0 0 3px currentColor); }
+  [data-theme="dark"] .theme-toggle:hover svg { transform: rotate(22.5deg); }
   .theme-toggle:focus-visible { outline: 2px solid var(--clay-deep); outline-offset: 3px; }
 
   [data-theme="dark"] .home-icon [stroke="#254037"] { stroke: var(--moss); }
@@ -268,6 +274,21 @@
   .pub .links a::after { content: " →"; }
   .pub .equal { color: var(--muted); font-size: 12px; font-style: italic; margin-left: 6px; }
   .pub-abstract { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 4px 0 10px; font-style: italic; }
+  .pub.has-fig { grid-template-columns: 100px 1fr 170px; }
+  .pub-fig {
+    width: 100%; height: auto; display: block; align-self: start;
+    border: 1px solid var(--rule); border-radius: 4px;
+    background: var(--figure-bg);
+  }
+
+  /* — Hero photo + profile links — */
+  .photo-col { display: flex; flex-direction: column; align-items: center; gap: 14px; flex-shrink: 0; position: relative; z-index: 0; }
+  .photo-links {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; max-width: 220px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .photo-links a { border-bottom: none; color: var(--moss); }
+  .photo-links a:hover { color: var(--clay-deep); }
 
   /* — Experience / Teaching: compact list — */
   .stack { display: grid; gap: 18px; }
@@ -363,6 +384,8 @@
     .wrap { padding: 0 16px; }
     .pub { grid-template-columns: 1fr; gap: 6px; }
     .pub .venue { padding-top: 0; }
+    .pub.has-fig { grid-template-columns: 1fr; }
+    .pub-fig { max-width: 260px; }
     .row { grid-template-columns: 1fr; gap: 4px; }
     .row .when { padding-top: 0; }
     .gallery { grid-template-columns: repeat(2, 1fr); }
