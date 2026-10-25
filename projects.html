@@ -80,12 +80,14 @@
             <h3 class="project-title">Physics-Informed Motion Generation</h3>
             <p class="project-desc">
               Developing physics-informed motion generation for human interactions, with plausibility
-              metrics to evaluate generative models. Simulations built with the Newton physics engine (NVIDIA Warp).
+              metrics to evaluate generative models. Simulations built with the Newton physics engine (NVIDIA Warp),
+              and humanoid control policies trained with reinforcement learning (ProtoMotions with Newton; PHC with Isaac Gym).
             </p>
             <div class="project-tags">
               <span class="tag">Motion gen</span>
               <span class="tag">Physics sim</span>
               <span class="tag">Newton</span>
+              <span class="tag">RL</span>
             </div>
           </div>
         </article>
@@ -99,11 +101,12 @@
             <h3 class="project-title">Virtual Patient · Stimulation → EMG</h3>
             <p class="project-desc">
               Modeling spinal-cord-injury patient responses to electrical stimulation, mapping
-              stimulation parameters to predicted EMG signals.
+              stimulation parameters to predicted EMG signals, using MyoSuite on MuJoCo.
             </p>
             <div class="project-tags">
               <span class="tag">Medical AI</span>
               <span class="tag">EMG</span>
+              <span class="tag">MuJoCo</span>
               <span class="tag">Collaboration</span>
             </div>
           </div>
@@ -231,13 +234,32 @@
             <div class="project-meta">VITA Lab · EPFL</div>
             <h3 class="project-title">Persian LLM Text-to-Speech</h3>
             <p class="project-desc">
-              Built a data-creation pipeline for a large-scale Persian dataset and fine-tuned an
-              LLM-based TTS model using both full-parameter training and LoRA.
+              Built a data-creation pipeline for a large-scale Persian speech dataset and fine-tuned an
+              LLM-based TTS model with multi-GPU training, using both full-parameter training and LoRA.
             </p>
             <div class="project-tags">
               <span class="tag">TTS</span>
               <span class="tag">LoRA</span>
               <span class="tag">Persian</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-cover is-indigo">
+            <span class="badge">Early experiments</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">VITA Lab · EPFL</div>
+            <h3 class="project-title">Toward a Driving World Model</h3>
+            <p class="project-desc">
+              Early experiments connecting a Newton-based driving simulator to a video generation model,
+              to explore whether a world-model project can grow out of it.
+            </p>
+            <div class="project-tags">
+              <span class="tag">World model</span>
+              <span class="tag">Video gen</span>
+              <span class="tag">Newton</span>
             </div>
           </div>
         </article>
@@ -270,7 +292,7 @@
             <h3 class="project-title">RL Locomotion for Surena&nbsp;IV</h3>
             <p class="project-desc">
               Designed a reinforcement-learning controller for the Surena IV humanoid's locomotion,
-              with simulation and validation in PyBullet.
+              with simulation and validation in PyBullet and a reward that includes a motion-imitation term.
             </p>
             <div class="project-tags">
               <span class="tag">RL</span>

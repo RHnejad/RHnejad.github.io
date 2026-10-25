@@ -62,7 +62,7 @@
       <div class="eyebrow">Curriculum Vitae</div>
       <h1><span class="name-accent">R</span>eyhaneh<span class="name-line2"><span class="name-accent">H</span>osseini<em>nejad</em></span></h1>
       <p class="lede">
-        PhD candidate at EPFL in Robotics, Control, and Intelligent Systems. Expected completion in 2027; available to coordinate a start date during the final thesis period.
+        PhD candidate at EPFL in Robotics, Control, and Intelligent Systems, working on 3D human motion. Expected graduation in 2027 (month flexible). Open to research internships and full-time roles.
       </p>
       <div class="quick" style="margin-top: 20px;">
         <span><a href="mailto:reyhaneh.hosseininejad@epfl.ch">reyhaneh.hosseininejad@epfl.ch</a></span>
@@ -141,7 +141,7 @@
         <div>
           <h3 class="title">HHI-Assist: A Dataset and Benchmark of Human–Human Interaction in Physical Assistance</h3>
           <p class="authors">S. Saadatnejad<span class="equal">*</span>, <b>Reyhaneh Hosseininejad</b><span
-              class="equal">*</span>, J. Barreiros, K. Tsui, A. Alahi</p>
+              class="equal">*</span>, J. Barreiros, K. Tsui, A. Alahi · <em>presented at ICRA</em></p>
           <div class="links">
             <a href="https://ieeexplore.ieee.org/document/11071897/" target="_blank" rel="noopener">Paper</a>
             <a href="https://arxiv.org/abs/2509.10096" target="_blank" rel="noopener">arXiv</a>
@@ -174,13 +174,15 @@
           <h4>Doctoral Assistant</h4>
           <p><span class="where">VITA Lab, EPFL · Switzerland</span></p>
           <ul>
-            <li>Physics-informed motion generation for human interactions (NVIDIA Warp / Newton).</li>
-            <li>Collaborating with NeuroRestore on stimulation-to-EMG modeling for spinal cord injury.</li>
-            <li>Developed a heatmap-based representation for multimodal human motion forecasting.</li>
-            <li>Built the <em>HHI-Assist</em> dataset for close-contact human–human interaction research.</li>
-            <li>Large-scale Persian TTS dataset pipeline; fine-tuned an LLM-based model with LoRA.</li>
-            <li>Cross-task consistency for 3D human pose estimation (direct 3D and 2D→3D lifting).</li>
-            <li>Hockey player trajectory forecasting with TrajNet++.</li>
+            <li>Simulating human–human interactions in Newton (NVIDIA Warp) for physics-informed motion generation, and training humanoid control policies with reinforcement learning (ProtoMotions with Newton; PHC with Isaac Gym).</li>
+            <li>Developing metrics that use physics simulation to judge whether generated human–human motion is plausible (paper in preparation).</li>
+            <li>Co-first author of <em>HHI-Assist</em> (RA-L 2025, presented at ICRA): a motion-capture dataset and benchmark of close-contact assistance between people, with a Transformer-based diffusion baseline. Now extending it to robot-assistance experiments in simulation.</li>
+            <li>Co-first author of <em>MotionMap</em> (CVPR 2025): a heatmap representation that captures several plausible futures and their uncertainty, reaching state-of-the-art results in human motion forecasting.</li>
+            <li>Used cross-task consistency between direct 3D estimation and 2D→3D lifting to improve 3D human pose estimation.</li>
+            <li>Used TrajNet++ to forecast the movement of professional hockey players from positional data.</li>
+            <li>Built a pipeline to create a large Persian speech dataset and fine-tuned an LLM-based text-to-speech model on it with multi-GPU training, using both full fine-tuning and LoRA.</li>
+            <li>Early experiments toward a world model: connecting a Newton-based driving simulator to a video generation model.</li>
+            <li>Working with the NeuroRestore lab on a virtual-patient model that maps spinal cord stimulation to muscle (EMG) responses, using MyoSuite on MuJoCo.</li>
           </ul>
         </div>
       </div>
@@ -191,9 +193,9 @@
           <h4>Research Assistant</h4>
           <p><span class="where">CAST · University of Tehran</span></p>
           <ul>
-            <li>RL locomotion controller for the Surena IV humanoid in PyBullet (Master's thesis).</li>
-            <li>EMG-controlled prosthetic hand with embedded circuitry (undergraduate thesis).</li>
-            <li>Walking-pattern simulations for Surena IV in Choreonoid.</li>
+            <li>Trained a reinforcement learning walking policy for the Surena IV humanoid in PyBullet with a reward that includes a motion-imitation term; custom Gym environments, trajectory generation, and inverse kinematics (<a href="thesis.html">Master's thesis</a>).</li>
+            <li>Simulated walking patterns for Surena IV in the Choreonoid simulator (BS research).</li>
+            <li>Designed and built a motorized prosthetic hand, including its embedded electronics and EMG-based control (BS final project).</li>
           </ul>
         </div>
       </div>
@@ -216,8 +218,8 @@
           <p><span class="where">RCBTR · IK Hospital Complex, Tehran</span></p>
           <ul>
             <li>Calibration phantoms for micro-CT scans.</li>
-            <li>3D-printed mold and silicone-rubber breast tumors for biopsy training.</li>
-            <li>Training tools for the Sina surgical robot.</li>
+            <li>Designed 3D-printed molds and made silicone breast-tumor models for biopsy training.</li>
+            <li>Developed training tools for the Sina surgical robot.</li>
           </ul>
         </div>
       </div>
@@ -239,7 +241,7 @@
         <div class="when">2017 — 2021</div>
         <div>
           <h4>Teaching Assistant · University of Tehran</h4>
-          <p>Artificial Intelligence · Measurement Systems and Instrumentations · System Identification · Introduction
+          <p>Artificial Intelligence · Measurement Systems and Instrumentation · System Identification · Introduction
             to Mechanical Engineering.</p>
         </div>
       </div>
@@ -262,20 +264,29 @@
       <h2 class="section-title">Technical Skills</h2>
 
       <div class="skill-row">
+        <div class="label">Robot Learning &amp; Simulation</div>
+        <div class="values">Reinforcement Learning · Motion Imitation · ProtoMotions · PHC · Isaac Gym · Newton · NVIDIA Warp · MuJoCo · MyoSuite · PyBullet · Gym · Choreonoid</div>
+      </div>
+      <div class="skill-row">
+        <div class="label">ML &amp; Vision</div>
+        <div class="values">PyTorch · TensorFlow · Scikit-learn · Hugging Face · Diffusion Models · Transformers · LLM Fine-Tuning (full-parameter, LoRA) · Multi-GPU Training · SMPL / SMPL-X</div>
+      </div>
+      <div class="skill-row">
         <div class="label">Programming</div>
         <div class="values">Python · C++ · C</div>
       </div>
       <div class="skill-row">
-        <div class="label">ML &amp; Vision</div>
-        <div class="values">PyTorch · TensorFlow · Scikit-learn · Hugging Face · SMPL / SMPL-X</div>
-      </div>
-      <div class="skill-row">
-        <div class="label">Simulation</div>
-        <div class="values">NVIDIA Warp · Newton · PyBullet · Choreonoid</div>
-      </div>
-      <div class="skill-row">
         <div class="label">DevOps &amp; Tools</div>
         <div class="values">Linux · Git · Docker · MATLAB · SolidWorks</div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICE ============ -->
+    <section class="cv-section">
+      <h2 class="section-title">Professional Service</h2>
+      <div class="skill-row">
+        <div class="label">Reviewer</div>
+        <div class="values">IEEE/CVF International Conference on Computer Vision (ICCV), 2025</div>
       </div>
     </section>
 
@@ -292,7 +303,7 @@
       </div>
       <div class="skill-row">
         <div class="label">French</div>
-        <div class="values">Elementary</div>
+        <div class="values">Elementary (A2)</div>
       </div>
     </section>
 
