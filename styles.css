@@ -275,6 +275,11 @@
   .pub .equal { color: var(--muted); font-size: 12px; font-style: italic; margin-left: 6px; }
   .pub-abstract { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 4px 0 10px; font-style: italic; }
   .pub.has-fig { grid-template-columns: 100px 1fr 170px; }
+  .pub-fig-link { display: block; border-bottom: none; align-self: start; }
+  .pub-fig-link:hover .pub-fig { border-color: var(--moss); opacity: 0.9; }
+  .pub-title-link { color: inherit; border-bottom: none; }
+  .pub-title-link:hover { color: var(--moss); }
+  .equal-note { margin-top: 16px; font-size: 13px; color: var(--muted); font-style: italic; }
   .pub-fig {
     width: 100%; height: auto; display: block; align-self: start;
     border: 1px solid var(--rule); border-radius: 4px;
@@ -283,6 +288,8 @@
 
   /* — Hero photo + profile links — */
   .photo-col { display: flex; flex-direction: column; align-items: center; gap: 14px; flex-shrink: 0; position: relative; z-index: 0; }
+  /* don't let the generic .hero-layout > div { flex: 1 } stretch the photo column */
+  .hero-layout > .photo-col { flex: 0 0 auto; min-width: 0; margin-left: auto; }
   .photo-links {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; max-width: 220px;
     font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
