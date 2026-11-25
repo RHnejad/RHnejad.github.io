@@ -114,14 +114,6 @@
       <h2 class="section-title">Publications</h2>
 
       <article class="pub">
-        <div class="venue">In Preparation<small>2026</small></div>
-        <div>
-          <h3 class="title">Physics-Derived Plausibility Metrics for 3D Human–Human Motion Generation</h3>
-          <p class="authors"><b>Reyhaneh Hosseininejad</b>, T. Van Der Meer, M. Shukla, A. Alahi</p>
-        </div>
-      </article>
-
-      <article class="pub">
         <div class="venue">CVPR<small>2025</small></div>
         <div>
           <h3 class="title">MotionMap: Representing Multimodality in Human Pose Forecasting</h3>
@@ -161,6 +153,15 @@
           </div>
         </div>
       </article>
+
+      <article class="pub">
+        <div class="venue">In Preparation<small>2026</small></div>
+        <div>
+          <h3 class="title">Physics-Derived Plausibility Metrics for 3D Human–Human Motion Generation</h3>
+          <p class="authors"><b>Reyhaneh Hosseininejad</b>, T. Van Der Meer, M. Shukla, A. Alahi</p>
+        </div>
+      </article>
+
       <p class="equal-note"><span class="equal">*</span> Equal contribution</p>
     </section>
 
@@ -174,15 +175,16 @@
           <h4>Doctoral Assistant</h4>
           <p><span class="where">VITA Lab, EPFL · Switzerland</span></p>
           <ul>
-            <li>Simulating human–human interactions in Newton (NVIDIA Warp) for physics-informed motion generation, and using reinforcement learning in simulation (ProtoMotions with Newton; PHC with Isaac Gym) to make the generated motion physically feasible.</li>
-            <li>Developing metrics that use physics simulation to judge whether generated human–human motion is plausible (paper in preparation).</li>
-            <li>Co-first author of <em>HHI-Assist</em> (RA-L 2025, presented at ICRA): a motion-capture dataset and benchmark of close-contact assistance between people, with a Transformer-based diffusion baseline. Now extending it to robot-assistance experiments in simulation.</li>
-            <li>Co-first author of <em>MotionMap</em> (CVPR 2025): a heatmap representation that captures several plausible futures and their uncertainty, reaching state-of-the-art results in human motion forecasting.</li>
-            <li>Used cross-task consistency between direct 3D estimation and 2D→3D lifting to improve 3D human pose estimation.</li>
+            <li>Developing a physics-based evaluation of generated two-person motion (paper in preparation).</li>
+            <li>Explored physics-informed text-to-motion generation.</li>
+            <li>Trained reinforcement learning motion-tracking policies in simulation (PPO; ProtoMotions on Newton (NVIDIA Warp), PHC on Isaac Gym).</li>
+            <li>Developed <em>HHI-Assist</em> (RA-L 2025, presented at ICRA), a motion-capture dataset and benchmark of close-contact physical assistance between people, with a Transformer-based diffusion baseline; now extending it to robot assistance in simulation.</li>
+            <li>Achieved state-of-the-art results in human motion forecasting with <em>MotionMap</em> (CVPR 2025), a heatmap representation that captures several plausible futures and their uncertainty.</li>
+            <li>Applied cross-task consistency between direct 3D estimation and 2D→3D lifting to improve 3D human pose estimation.</li>
             <li>Used TrajNet++ to forecast the movement of professional hockey players from positional data.</li>
-            <li>Built a pipeline to create a large Persian speech dataset and fine-tuned an LLM-based text-to-speech model on it with multi-GPU training, using both full fine-tuning and LoRA.</li>
-            <li>Building a driving world model by conditioning the LTX-2 video generation model on embeddings from a Newton-based driving simulator.</li>
-            <li>Working with the NeuroRestore lab on a virtual-patient model that maps spinal cord stimulation to muscle (EMG) responses, using MyoSuite on MuJoCo.</li>
+            <li>Built a large Persian speech dataset with a custom data pipeline and fine-tuned an LLM-based text-to-speech model on it (full fine-tuning and LoRA, multi-GPU training).</li>
+            <li>Building an action-conditioned driving world model for closed-loop testing of driving policies, which turns multi-car Newton simulations into realistic video with LTX-2 (depth and motion-track conditioning).</li>
+            <li>Collaborating with the NeuroRestore lab on a virtual-patient model of spinal cord injury that maps spinal cord stimulation to muscle (EMG) responses, using MyoSuite on MuJoCo.</li>
           </ul>
         </div>
       </div>
@@ -193,9 +195,9 @@
           <h4>Research Assistant</h4>
           <p><span class="where">CAST · University of Tehran</span></p>
           <ul>
-            <li>Trained a reinforcement learning walking policy for the Surena IV humanoid in PyBullet with a reward that includes a motion-imitation term; custom Gym environments, trajectory generation, and inverse kinematics (<a href="thesis.html">Master's thesis</a>).</li>
+            <li>Trained a reinforcement learning walking policy for the Surena IV humanoid in PyBullet, with a motion-imitation term in the reward, and built its custom Gym environments, trajectory generation, and inverse kinematics (<a href="thesis.html">Master's thesis</a>).</li>
+            <li>Designed and built a 6-DoF robotic prosthetic hand (3D-printed and machined parts, hand-built electronics, Arduino) controlled by an EMG-based classifier (BS final project).</li>
             <li>Simulated walking patterns for Surena IV in the Choreonoid simulator (BS research).</li>
-            <li>Designed and built a motorized prosthetic hand, including its embedded electronics and EMG-based control (BS final project).</li>
           </ul>
         </div>
       </div>
@@ -269,7 +271,11 @@
       </div>
       <div class="skill-row">
         <div class="label">ML &amp; Vision</div>
-        <div class="values">PyTorch · TensorFlow · Scikit-learn · Hugging Face · Diffusion Models · Transformers · LLM Fine-Tuning (full-parameter, LoRA) · Multi-GPU Training · SMPL / SMPL-X</div>
+        <div class="values">PyTorch · TensorFlow · Scikit-learn · Hugging Face · Diffusion Models · Video Generation · World Models · Transformers · LLM Fine-Tuning (full-parameter, LoRA) · Multi-GPU Training · SMPL / SMPL-X</div>
+      </div>
+      <div class="skill-row">
+        <div class="label">Robot Hardware</div>
+        <div class="values">Robotic Hand Design · Embedded Electronics · Arduino · EMG</div>
       </div>
       <div class="skill-row">
         <div class="label">Programming</div>
